@@ -44,6 +44,11 @@ class CurrencyViewController: UIViewController {
         self.presenter?.notifyFetchCurrencyBitcoin()
         self.startCountdownTimer()
         self.initUI()
+        
+        //MARK: เขียน program generate จำนวนเฉพาะ (2, 3, 5, 7, 11, 13, 17, 19, …)
+        let limit = 50
+        let primes = generatePrimes(upTo: limit)
+        print("primes = ", primes)
     }
     
     func initUI() {
@@ -163,6 +168,39 @@ class CurrencyViewController: UIViewController {
         let seconds = remainingTime % 60
         let formattedTime = String(format: "%02d:%02d", minutes, seconds)
         countdownLabel.text = "Update Data in : " + formattedTime
+    }
+    
+    //MARK: เขียน program generate จำนวนเฉพาะ (2, 3, 5, 7, 11, 13, 17, 19, …)
+    func isPrime(_ number: Int) -> Bool {
+        if number <= 1 {
+            return false
+        }
+        
+        if number <= 3 {
+            return true
+        }
+        
+        var i = 2
+        while i * i <= number {
+            if number % i == 0 {
+                return false
+            }
+            i += 1
+        }
+        
+        return true
+    }
+
+    func generatePrimes(upTo limit: Int) -> [Int] {
+        var primes: [Int] = []
+        
+        for number in 2...limit {
+            if isPrime(number) {
+                primes.append(number)
+            }
+        }
+        
+        return primes
     }
     
 }
