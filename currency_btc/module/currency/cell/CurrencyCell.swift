@@ -71,7 +71,7 @@ class CurrencyCell: UICollectionViewCell {
         
         let timeUpdated = dateFormatter.string(from: timeDate)
         
-        self.dateUpdatedLabel.text = "Time : " + timeUpdated
+        self.dateUpdatedLabel.text = "Updated at : " + timeUpdated
     }
 
 }

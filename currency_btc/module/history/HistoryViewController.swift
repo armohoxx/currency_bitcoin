@@ -18,6 +18,7 @@ class HistoryViewController: UIViewController {
 
     @IBOutlet weak var tiletleHistoryLabel: UILabel!
     @IBOutlet weak var collectionViewHistory: UICollectionView!
+    @IBOutlet weak var noHistoryLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class HistoryViewController: UIViewController {
     }
     
     func initUI() {
+        self.noHistoryLabel.bringSubviewToFront(self.collectionViewHistory)
         self.setupNavigationBar()
         let nibCurrencyCell = UINib(nibName: "CurrencyCell", bundle: nil)
         self.collectionViewHistory.register(nibCurrencyCell, forCellWithReuseIdentifier: "CurrencyCell")
@@ -44,6 +46,13 @@ extension HistoryViewController: HistoryViewProtocol {
     
     func displayHistoryCurrencyBitcoin(currencyData: [BitcoinEntity]) {
         self.currencyBitcoinData = currencyData
+        if self.currencyBitcoinData.count == 0 {
+            self.noHistoryLabel.isHidden = false
+            self.collectionViewHistory.reloadData()
+        } else {
+            self.noHistoryLabel.isHidden = true
+            self.collectionViewHistory.reloadData()
+        }
     }
     
 }

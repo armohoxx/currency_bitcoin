@@ -41,7 +41,7 @@ extension CurrencyInteractor: CurrencyInteractorProtocol {
                     self.presenter?.notifyDisplayCurrencyBitcoin(currencyData: [dataCurrency])
                 }
             } else {
-                //error fetch data
+                print("error fetch data")
             }
         })
     }

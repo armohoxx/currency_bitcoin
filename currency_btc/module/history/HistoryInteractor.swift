@@ -14,13 +14,29 @@ class HistoryInteractor {
 
     weak var presenter: HistoryPresenterProtocol?
     var currencyBitcoinData: [BitcoinEntity] = []
+    
+    init() {
+        self.startUpdatingData()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func startUpdatingData() {
+        Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateData() {
+        self.fetchHistoryCurrencyBitcoin()
+    }
+    
 }
 
 extension HistoryInteractor: HistoryInteractorProtocol {
     
     func fetchHistoryCurrencyBitcoin() {
         if let healthCurrencyBitcoin = DBHistoryCurrencyBitcoinHelper.shared.selectCurrencyBitcoin() {
-            print("healthCurrencyBitcoin.count = \(healthCurrencyBitcoin.count)")
             for data in healthCurrencyBitcoin {
                 if let jsonResult = data.currency_bitcoin_data.dictionary() {
                     if let currencyBitcoinData = BitcoinEntity.from(jsonResult) {
@@ -29,6 +45,8 @@ extension HistoryInteractor: HistoryInteractorProtocol {
                 }
             }
             self.presenter?.notifyDisplayHistoryCurrencyBitcoin(currencyData: self.currencyBitcoinData)
+        } else {
+            print("error get data")
         }
     }
     

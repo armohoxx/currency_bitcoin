@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="currency_btc" customModuleProvider="target">
             <connections>
                 <outlet property="collectionViewHistory" destination="43n-Yv-wHA" id="vMY-8E-0VB"/>
+                <outlet property="noHistoryLabel" destination="YVs-gr-8Vg" id="5y0-0n-lwg"/>
                 <outlet property="tiletleHistoryLabel" destination="JjN-g4-jDF" id="3a1-BA-Oen"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,9 +34,15 @@
                         <outlet property="delegate" destination="-1" id="hQs-Qn-gVb"/>
                     </connections>
                 </collectionView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjN-g4-jDF">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjN-g4-jDF">
                     <rect key="frame" x="15" y="15" width="345" height="24"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No History" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-gr-8Vg">
+                    <rect key="frame" x="147" y="323.5" width="81" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -48,8 +55,10 @@
                 <constraint firstItem="JjN-g4-jDF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Jnd-za-aY7"/>
                 <constraint firstItem="vn0-NU-CxX" firstAttribute="bottom" secondItem="43n-Yv-wHA" secondAttribute="bottom" id="P5r-KH-ohJ"/>
                 <constraint firstAttribute="trailing" secondItem="43n-Yv-wHA" secondAttribute="trailing" id="Vz1-Fr-Y8l"/>
+                <constraint firstItem="YVs-gr-8Vg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WcB-Sh-Grl"/>
                 <constraint firstAttribute="trailing" secondItem="JjN-g4-jDF" secondAttribute="trailing" constant="15" id="fBO-QV-lv1"/>
                 <constraint firstItem="JjN-g4-jDF" firstAttribute="top" secondItem="vn0-NU-CxX" secondAttribute="top" constant="-5" id="nEL-iO-Adu"/>
+                <constraint firstItem="YVs-gr-8Vg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="rIk-Wy-a94"/>
             </constraints>
             <point key="canvasLocation" x="16.800000000000001" y="-10.344827586206897"/>
         </view>

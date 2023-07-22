@@ -23,7 +23,7 @@ class UserSession {
         if let currencyBTCString = UserDefaults.standard.string(forKey: UserSession.currencyBTC) {
             if let jsonResult = currencyBTCString.dictionary() {
                 if let currencyBitcoinData = BitcoinEntity.from(jsonResult) {
-                    if let healthCurrencyBitcoin = DBHistoryCurrencyBitcoinHelper.shared.selectCurrencyBitcoin() {
+                    if let healthCurrencyBitcoin = DBHistoryCurrencyBitcoinHelper.shared.selectCurrencyBitcoin(), !healthCurrencyBitcoin.isEmpty {
                         for data in healthCurrencyBitcoin {
                             let formatter = DateFormatter()
                             formatter.locale = Locale(identifier: "en_US_POSIX")

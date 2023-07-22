@@ -53,6 +53,7 @@ class CurrencyViewController: UIViewController {
         let nibCurrencyCell = UINib(nibName: "CurrencyCell", bundle: nil)
         self.collectionViewCurrency.register(nibCurrencyCell, forCellWithReuseIdentifier: "CurrencyCell")
         self.selectCurrencyTextField.setRightImage(imageName: "ic_dropdown", width: 16, height: 16)
+        self.inputCurrencyTextField.delegate = self
         self.selectCurrencyTextField.text = "USD"
         self.calculateButton.layer.cornerRadius = 15
         self.calculateButton.tintColor = UIColor.white
@@ -104,11 +105,11 @@ class CurrencyViewController: UIViewController {
         for data in self.currencyBitcoinData {
             if self.inputCurrencyTextField.text?.count != 0 {
                 if self.selectCurrencyTextField.text == data.usd?.code ?? "" {
-                    self.resultLabel.text = "Result BTC Amount : " + "\((Double(self.inputCurrencyTextField.text!) ?? 0) / (data.usd?.rate_float ?? 0))"
+                    self.resultLabel.text = "Result BTC Amount : " + "\((Float64(self.inputCurrencyTextField.text!)!) / Float64(data.usd?.rate_float ?? 0))"
                 } else if self.selectCurrencyTextField.text == data.gbp?.code ?? "" {
-                    self.resultLabel.text = "Result BTC Amount : " + "\((Double(self.inputCurrencyTextField.text!) ?? 0) / (data.gbp?.rate_float ?? 0))"
+                    self.resultLabel.text = "Result BTC Amount : " + "\((Float64(self.inputCurrencyTextField.text!)!) / Float64(data.gbp?.rate_float ?? 0))"
                 } else if self.selectCurrencyTextField.text == data.eur?.code ?? "" {
-                    self.resultLabel.text = "Result BTC Amount : " + "\((Double(self.inputCurrencyTextField.text!) ?? 0) / (data.eur?.rate_float ?? 0))"
+                    self.resultLabel.text = "Result BTC Amount : " + "\((Float64(self.inputCurrencyTextField.text!)!) / Float64(data.eur?.rate_float ?? 0))"
                 }
             } else {
                 let alert = UIAlertController(title: "Alert?", message: "Please insert input", preferredStyle: .alert)
@@ -172,7 +173,7 @@ extension CurrencyViewController: CurrencyViewProtocol {
         self.currencyBitcoinData = currencyData
         
         for data in currencyData {
-            self.titleLabel.text = data.chartName
+            self.titleLabel.text = (data.chartName ?? "Bitcoin") + " Rate NOW!"
         }
         
         self.tiltleChangeCurrencyLabel.text = "Change Currency To BTC"
@@ -182,6 +183,16 @@ extension CurrencyViewController: CurrencyViewProtocol {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
         }
+    }
+    
+}
+
+extension CurrencyViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        self.dropDown.hide()
+        return true
     }
     
 }
