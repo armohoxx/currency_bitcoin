@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="currency_btc" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionViewHistory" destination="43n-Yv-wHA" id="vMY-8E-0VB"/>
+                <outlet property="tiletleHistoryLabel" destination="JjN-g4-jDF" id="3a1-BA-Oen"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="43n-Yv-wHA">
+                    <rect key="frame" x="0.0" y="54" width="375" height="613"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i9n-uD-1hC">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="jXk-K3-gZ0"/>
+                        <outlet property="delegate" destination="-1" id="hQs-Qn-gVb"/>
+                    </connections>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjN-g4-jDF">
+                    <rect key="frame" x="15" y="15" width="345" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vn0-NU-CxX"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="43n-Yv-wHA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="76A-H6-0dG"/>
+                <constraint firstItem="43n-Yv-wHA" firstAttribute="top" secondItem="JjN-g4-jDF" secondAttribute="bottom" constant="15" id="9vF-33-lX2"/>
+                <constraint firstItem="JjN-g4-jDF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Jnd-za-aY7"/>
+                <constraint firstItem="vn0-NU-CxX" firstAttribute="bottom" secondItem="43n-Yv-wHA" secondAttribute="bottom" id="P5r-KH-ohJ"/>
+                <constraint firstAttribute="trailing" secondItem="43n-Yv-wHA" secondAttribute="trailing" id="Vz1-Fr-Y8l"/>
+                <constraint firstAttribute="trailing" secondItem="JjN-g4-jDF" secondAttribute="trailing" constant="15" id="fBO-QV-lv1"/>
+                <constraint firstItem="JjN-g4-jDF" firstAttribute="top" secondItem="vn0-NU-CxX" secondAttribute="top" constant="-5" id="nEL-iO-Adu"/>
+            </constraints>
+            <point key="canvasLocation" x="16.800000000000001" y="-10.344827586206897"/>
+        </view>
+    </objects>
+</document>
