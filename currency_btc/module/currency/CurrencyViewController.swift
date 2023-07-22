@@ -110,11 +110,20 @@ class CurrencyViewController: UIViewController {
         for data in self.currencyBitcoinData {
             if self.inputCurrencyTextField.text?.count != 0 {
                 if self.selectCurrencyTextField.text == data.usd?.code ?? "" {
-                    self.resultLabel.text = "Result BTC Amount : " + "\((Float64(self.inputCurrencyTextField.text!)!) / Float64(data.usd?.rate_float ?? 0))"
+                    let calUSDToBitcoin = Double(self.inputCurrencyTextField.text!)! / Double(data.usd?.rate_float ?? 0)
+                    let finalBitcoin = NSDecimalNumber(string: "\(calUSDToBitcoin)")
+                    
+                    self.resultLabel.text = "Result BTC Amount : " + "\(finalBitcoin)"
                 } else if self.selectCurrencyTextField.text == data.gbp?.code ?? "" {
-                    self.resultLabel.text = "Result BTC Amount : " + "\((Float64(self.inputCurrencyTextField.text!)!) / Float64(data.gbp?.rate_float ?? 0))"
+                    let calGBPToBitcoin = Double(self.inputCurrencyTextField.text!)! / Double(data.gbp?.rate_float ?? 0)
+                    let finalBitcoin = NSDecimalNumber(string: "\(calGBPToBitcoin)")
+                    
+                    self.resultLabel.text = "Result BTC Amount : " + "\(finalBitcoin)"
                 } else if self.selectCurrencyTextField.text == data.eur?.code ?? "" {
-                    self.resultLabel.text = "Result BTC Amount : " + "\((Float64(self.inputCurrencyTextField.text!)!) / Float64(data.eur?.rate_float ?? 0))"
+                    let calEURToBitcoin = Double(self.inputCurrencyTextField.text!)! / Double(data.eur?.rate_float ?? 0)
+                    let finalBitcoin = NSDecimalNumber(string: "\(calEURToBitcoin)")
+                    
+                    self.resultLabel.text = "Result BTC Amount : " + "\(finalBitcoin)"
                 }
             } else {
                 let alert = UIAlertController(title: "Alert?", message: "Please insert input", preferredStyle: .alert)
